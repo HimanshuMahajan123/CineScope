@@ -1,12 +1,21 @@
 import { useState } from 'react'
 import './App.css'
+import Navbar from './components/Navbar'
+import Footer from './components/Footer'
+import MovieCard from './components/MovieCard'
+import MovieList from './components/MovieList'
+import Home from './pages/Home'
 
 function App() {
 
   return (
-    <>
-     <p className='bg-green-300 text-5xl'>my first step</p>
-    </>
+    <div className="bg-gray-900 min-h-screen flex flex-col">
+      <Navbar />
+      <main className="flex-grow ">
+        <Home />
+      </main>
+      <Footer />
+    </div>
   )
 }
 
