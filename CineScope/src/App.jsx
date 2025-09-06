@@ -12,13 +12,8 @@ import Watchlist from './pages/Watchlist'
 function App() {
 
   return (
-    <div className="bg-gray-900 min-h-screen flex flex-col">
-      <Navbar />
-      <main className="flex-grow ">
-        <Home />
-      </main>
-      <Footer />
-    </div>
+    <>
+    </>
   )
 }
 
