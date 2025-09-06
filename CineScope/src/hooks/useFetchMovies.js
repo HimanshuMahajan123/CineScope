@@ -21,8 +21,8 @@ function useFetchmovies(url) {
                 return res.json();
             })
             .then((res) => {
-                setData(res.results || res)
                 console.log(res.results)
+                setData(res.results || res)
             })
             .catch((err) => setError(err.message))
             .finally(() => setLoading(false))
