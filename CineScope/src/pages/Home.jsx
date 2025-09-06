@@ -3,6 +3,25 @@ import { useEffect } from "react";
 import useFetchmovies from "../hooks/useFetchmovies";
 
 export default function Home() {
+
+  // useEffect(() => {
+  //   const getData = async () => {
+  //     const res = await fetch(`https://api.themoviedb.org/3/trending/movie/week?api_key=${import.meta.env.VITE_TMDB_API_KEY}`,
+  //       { method: 'GET',
+  //         headers: {
+  //           accept: 'application/json',
+  //           authorization: `Bearer ${import.meta.env.VITE_TMDB_API_TOKEN}`
+  //         }
+  //       }
+  //     );
+
+  //     const data = await res.json();
+  //     console.log(data);
+  //   }
+  //   getData();
+  // }, [])
+
+
   const API_KEY = import.meta.env.VITE_TMDB_API_KEY;
   const {data : movies , loading , error} = useFetchmovies(`https://api.themoviedb.org/3/trending/movie/week?api_key=${API_KEY}`);
 

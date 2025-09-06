@@ -20,7 +20,10 @@ function useFetchmovies(url) {
                 }
                 return res.json();
             })
-            .then((res) => setData(res.results || res))
+            .then((res) => {
+                setData(res.results || res)
+                console.log(res.results)
+            })
             .catch((err) => setError(err.message))
             .finally(() => setLoading(false))
     } , [url]);

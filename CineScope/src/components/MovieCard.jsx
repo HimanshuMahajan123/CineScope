@@ -1,10 +1,11 @@
 import React from 'react'
+import { Link } from 'react-router-dom'
 
-function MovieCard({ title, rating, image }) {
+function MovieCard({ id , title, rating, image }) {
   return (
-    <div className='relative transform hover:scale-105 transition duration-300'>
+    <Link to={`/movie/${id}`} className='relative transform hover:scale-105 transition duration-300'>
         <img 
-            src={image} 
+            src={image ? `https://image.tmdb.org/t/p/w500${image}` : "https://via.placeholder.com/400x600"} 
             alt={title} 
             className='w-full h-64 object-cover rounded-lg shadow-lg' 
         />
@@ -13,7 +14,7 @@ function MovieCard({ title, rating, image }) {
             <h3 className='text-white font-bold'>{title}</h3>
             <p className='text-sm text-gray-300'>⭐ {rating}</p>
         </div>
-    </div>
+    </Link>
   )
 }
 
