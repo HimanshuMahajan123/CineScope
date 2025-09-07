@@ -14,14 +14,14 @@ export default function MovieDetails() {
   return (
     <div className="bg-gray-900 text-white min-h-screen pt-20 px-8">
       <div className="flex flex-col md:flex-row gap-8">
-        {/* Poster */}
+      
         <img 
           src={movie.poster_path ? `https://image.tmdb.org/t/p/w500${movie.poster_path}` : "https://via.placeholder.com/400x600"}
           alt={movie.title}
           className="w-full max-w-xs md:max-w-sm rounded-lg shadow-lg"
         />
 
-        {/* Movie Info */}
+       
         <div className="flex-1">
           <h2 className="text-4xl font-extrabold mb-4">{movie.title}</h2>
           <p className="text-gray-300 mb-2">⭐ Rating: {movie.vote_average ? movie.vote_average.toFixed(1) : "N/A"}</p>
