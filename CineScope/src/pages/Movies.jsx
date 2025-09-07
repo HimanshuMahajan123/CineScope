@@ -12,7 +12,7 @@ function Movies() {
 
     return (
         <div className="bg-gray-900 min-h-screen text-white pt-20 px-8">
-            <h2 className='className="text-3xl font-extrabold mb-6'>Popular Movies</h2>
+            <h2 className='text-3xl font-extrabold mb-6'>Popular Movies</h2>
 
             {loading && <p className='text-gray-400'>Loading...</p>}
             {error && <p className='text-red-600'>Error : {error}</p>}

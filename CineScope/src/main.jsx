@@ -9,6 +9,7 @@ import MovieDetails from './pages/MovieDetails'
 import About from './pages/About'
 import Watchlist from './pages/Watchlist'
 import Movies from './pages/Movies.jsx'
+import TvShows from './pages/TvShows.jsx'
 
 
 
@@ -20,6 +21,7 @@ const router = createBrowserRouter(
       <Route path = 'about' element = {<About />}/>
       <Route path = 'movies' element = {<Movies />} />
       <Route path = 'movie/:id' element = {<MovieDetails />}/>
+      <Route path = 'tv' element = {<TvShows/>}/>
     </Route>
   )
 )
