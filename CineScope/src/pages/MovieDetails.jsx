@@ -18,7 +18,7 @@ export default function MovieDetails() {
         <img 
           src={movie.poster_path ? `https://image.tmdb.org/t/p/w500${movie.poster_path}` : "https://via.placeholder.com/400x600"}
           alt={movie.title}
-          className="w-full md:w-1/3 rounded-lg shadow-lg"
+          className="w-full max-w-xs md:max-w-sm rounded-lg shadow-lg"
         />
 
         {/* Movie Info */}

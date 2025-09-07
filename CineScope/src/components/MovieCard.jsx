@@ -7,7 +7,7 @@ function MovieCard({ id , title, rating, image }) {
         <img 
             src={image ? `https://image.tmdb.org/t/p/w500${image}` : "https://via.placeholder.com/400x600"} 
             alt={title} 
-            className='w-full h-64 object-cover rounded-lg shadow-lg' 
+            className='w-full h-full object-cover rounded-lg shadow-lg ' 
         />
 
         <div className='absolute bottom-0 left-0 right-0 bg-gradient-to-t from-black/80 to-transparent p-3 rounded-b-lg'>

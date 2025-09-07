@@ -8,6 +8,8 @@ import Home from './pages/Home'
 import MovieDetails from './pages/MovieDetails'
 import About from './pages/About'
 import Watchlist from './pages/Watchlist'
+import Movies from './pages/Movies.jsx'
+
 
 
 const router = createBrowserRouter(
@@ -16,6 +18,7 @@ const router = createBrowserRouter(
       <Route path = '' element = {<Home />}/>
       <Route path = 'watchlist' element = {<Watchlist />}/>
       <Route path = 'about' element = {<About />}/>
+      <Route path = 'movies' element = {<Movies />} />
       <Route path = 'movie/:id' element = {<MovieDetails />}/>
     </Route>
   )
