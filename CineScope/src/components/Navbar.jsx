@@ -1,25 +1,40 @@
-import React from 'react'
-import { Link } from 'react-router-dom'
+import { NavLink } from "react-router-dom";
 
-function Navbar() {
+export default function Navbar() {
+  const navItems = [
+    { to: "/", label: "Home" },
+    { to: "/movies", label: "Movies" },
+    { to: "/tv", label: "TV Shows" },
+    { to : "/watchlist" , label : "Watchlist"},
+    { to : "/about" , label : "About"}
+  ];
+
   return (
-     <nav className="flex justify-between items-center px-8 py-4 bg-black fixed w-full z-10 shadow-md">
-      {/* Logo */}
-      <h1 className="text-3xl font-extrabold tracking-wide">
-        <span className="text-red-600">Cine</span>
-        <span className="text-white">Scope</span>
-      </h1>
+    <nav className="fixed top-0 left-0 right-0 bg-black/80 backdrop-blur-md z-50 shadow-lg">
+      <div className="container mx-auto flex items-center justify-between px-6 py-4">
+  
+        <h1 className="text-2xl font-extrabold text-red-600 tracking-wide">CineScope</h1>
 
-      {/* Links */}
-      <ul className="flex gap-8 text-gray-200 font-medium">
-
-        <li><Link to= "/" className="hover:text-white cursor-pointer">Home</Link></li>
-        <li><Link to= "/movies" className="hover:text-white cursor-pointer">Movies</Link></li>
-        <li><Link to= "/watchlist" className="hover:text-white cursor-pointer">Watchlist</Link></li>
-        <li><Link to= "/about" className="hover:text-white cursor-pointer">About</Link></li>
-      </ul>
+        {/* Nav Links as List */}
+        <ul className="flex gap-8">
+          {navItems.map((item) => (
+            <li key={item.to}>
+              <NavLink
+                to={item.to}
+                className={({ isActive }) =>
+                  `relative font-medium transition duration-300 ${
+                    isActive
+                      ? "text-red-500 after:content-[''] after:absolute after:-bottom-1 after:left-0 after:w-full after:h-[2px] after:bg-red-500"
+                      : "text-gray-300 hover:text-white"
+                  }`
+                }
+              >
+                {item.label}
+              </NavLink>
+            </li>
+          ))}
+        </ul>
+      </div>
     </nav>
-  )
+  );
 }
-
-export default Navbar
