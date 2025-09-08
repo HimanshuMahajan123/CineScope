@@ -31,7 +31,7 @@ export default function Home() {
 
       {loading && <p className="text-gray-400">Loading...</p>}
       {error && <p className="text-red-500">Error: {error}</p>}
-      {!loading && !error && <MovieList movies={movies} />}
+      {!loading && !error && <MovieList movies={movies} mediaType="movie"/>}
     </div>
   );
 }

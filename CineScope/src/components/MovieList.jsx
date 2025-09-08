@@ -1,16 +1,17 @@
 import MovieCard from "./MovieCard";
 
 
-function MovieList({movies}) {
+function MovieList({movies , mediaType}) {
   return (
     <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-5 gap-6">
-      {movies.map((movie) => (
+      {movies.map((m) => (
         <MovieCard  
-          key={movie.id} //“Each child in a list should have a unique ‘key’ prop.”
-          id = {movie.id}
-          title={movie.title || movie.name} 
-          rating={movie.vote_average ? movie.vote_average.toFixed(1) : "N/A"} 
-          image={movie.poster_path} 
+          key={m.id} //“Each child in a list should have a unique ‘key’ prop.”
+          id = {m.id}
+          title={m.title || m.name} 
+          rating={m.vote_average ? m.vote_average.toFixed(1) : "N/A"} 
+          image={m.poster_path} 
+          mediaType = {mediaType}
         />
       ))}
     </div>

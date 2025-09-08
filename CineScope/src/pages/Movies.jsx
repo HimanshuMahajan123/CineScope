@@ -17,7 +17,7 @@ function Movies() {
             {loading && <p className='text-gray-400'>Loading...</p>}
             {error && <p className='text-red-600'>Error : {error}</p>}
 
-            {!loading && !error && <MovieList movies = {movies}/>}
+            {!loading && !error && <MovieList movies = {movies} mediaType = "movie"/>}
 
 
             <div className='flex justify-center items-center gap-4 mt-10'>

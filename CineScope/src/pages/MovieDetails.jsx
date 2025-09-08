@@ -3,9 +3,10 @@ import useFetchmovies from "../hooks/useFetchmovies";
 
 export default function MovieDetails() {
 
-  const { id } = useParams();
+  const { mediaType ,  id } = useParams();
+  console.log(mediaType)
   const API_KEY = import.meta.env.VITE_TMDB_API_KEY;
-  const { data: movie, loading, error } = useFetchmovies(`https://api.themoviedb.org/3/movie/${id}?api_key=${API_KEY}&append_to_response=credits`);//this url is dynamic based on the movie id
+  const { data: movie, loading, error } = useFetchmovies(`https://api.themoviedb.org/3/${mediaType}/${id}?api_key=${API_KEY}&append_to_response=credits`);//this url is dynamic based on the movie id
 
   if (loading) return <p className="text-gray-400">Loading...</p>;
   if (error) return <p className="text-red-500">Error: {error}</p>;
@@ -33,7 +34,7 @@ export default function MovieDetails() {
           <ul className="list-disc list-inside text-gray-300">
             {movie.credits && movie.credits.cast && movie.credits.cast.length > 0 ? (
               movie.credits.cast.slice(0, 5).map((actor) => (
-                <li key={actor.cast_id}>{actor.name} as {actor.character}</li>
+                <li key={actor.id}> {actor.name} as {actor.character} </li>
               ))
             ) : (
               <li>No cast information available.</li>
