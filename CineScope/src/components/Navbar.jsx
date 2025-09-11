@@ -18,7 +18,6 @@ export default function Navbar() {
     e.preventDefault()
     if (query.trim()) {
       navigate(`/search/${query}`)
-      setQuery("")
     }
   }
 
@@ -57,10 +56,7 @@ export default function Navbar() {
             placeholder="Search.."
             value={query}
             onChange={(e) => { setQuery(e.target.value) }}
-            className="w-3/4 px-4 py-2 rounded-full 
-               bg-white/10 backdrop-blur-md text-white 
-               placeholder-gray-400
-               focus:outline-none "
+            className="w-3/4 px-4 py-2 rounded-full bg-white/10 backdrop-blur-md text-white placeholder-gray-400 focus:outline-none "
           />
         </form>
 

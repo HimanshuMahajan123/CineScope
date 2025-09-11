@@ -11,7 +11,7 @@ function MovieList({movies , mediaType}) {
           title={m.title || m.name} 
           rating={m.vote_average ? m.vote_average.toFixed(1) : "N/A"} 
           image={m.poster_path} 
-          mediaType = {mediaType}
+          mediaType = {m.media_type || mediaType}
         />
       ))}
     </div>

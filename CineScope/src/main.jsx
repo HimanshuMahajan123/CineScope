@@ -10,6 +10,7 @@ import About from './pages/About'
 import Watchlist from './pages/Watchlist'
 import Movies from './pages/Movies.jsx'
 import TvShows from './pages/TvShows.jsx'
+import SearchResults from './pages/SearchResults.jsx'
 
 
 
@@ -20,9 +21,9 @@ const router = createBrowserRouter(
       <Route path = 'watchlist' element = {<Watchlist />}/>
       <Route path = 'about' element = {<About />}/>
       <Route path = 'movies' element = {<Movies />} />
-      <Route path = ':mediaType/:id' element = {<MovieDetails />}/>
+      <Route path='search/:query' element = {<SearchResults/>}/>
+      <Route path = ':mediaType/:id' element = {<MovieDetails />}/> {/*differentiating the endpoints */ }
       <Route path = 'tv' element = {<TvShows/>}/>
-      {/* <Route path = 'tv/:id' element = {<MovieDetails/>}/> */}
     </Route>
   )
 )
