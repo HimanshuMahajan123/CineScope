@@ -22,7 +22,7 @@ const router = createBrowserRouter(
       <Route path = 'about' element = {<About />}/>
       <Route path = 'movies' element = {<Movies />} />
       <Route path='search/:query' element = {<SearchResults/>}/>
-      <Route path = ':mediaType/:id' element = {<MovieDetails />}/> {/*differentiating the endpoints */ }
+      <Route path = 'details/:mediaType/:id' element = {<MovieDetails />}/> {/*differentiating routes to prevent ambiguity*/}
       <Route path = 'tv' element = {<TvShows/>}/>
     </Route>
   )

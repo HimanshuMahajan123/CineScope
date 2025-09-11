@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom'
 
 function MovieCard({ id , title, rating, image , mediaType}) {
   return (
-    <Link to={`/${mediaType}/${id}`} className='relative transform hover:scale-105 transition duration-300'>
+    <Link to={`/details/${mediaType}/${id}`} className='relative transform hover:scale-105 transition duration-300'>
         <img 
             src={image ? `https://image.tmdb.org/t/p/w500${image}` : "https://via.placeholder.com/400x600"} 
             alt={title} 
