@@ -2,7 +2,7 @@ import { StrictMode } from 'react'
 import { createRoot } from 'react-dom/client'
 import './index.css'
 import App from './App.jsx'
-import { Route , BrowserRouter , RouterProvider , createBrowserRouter , createRoutesFromElements } from 'react-router-dom'
+import { Route , RouterProvider , createBrowserRouter , createRoutesFromElements } from 'react-router-dom'
 import Layout from './Layout.jsx'
 import Home from './pages/Home'
 import MovieDetails from './pages/MovieDetails'
@@ -20,10 +20,10 @@ const router = createBrowserRouter(
       <Route path = '' element = {<Home />}/>
       <Route path = 'watchlist' element = {<Watchlist />}/>
       <Route path = 'about' element = {<About />}/>
-      <Route path = 'movies' element = {<Movies />} />
-      <Route path='search/:query' element = {<SearchResults/>}/>
+      <Route path = 'discover/movies' element = {<Movies />} />
+      <Route path= 'search/:query' element = {<SearchResults/>}/>
       <Route path = 'details/:mediaType/:id' element = {<MovieDetails />}/> {/*differentiating routes to prevent ambiguity*/}
-      <Route path = 'tv' element = {<TvShows/>}/>
+      <Route path = 'discover/tv' element = {<TvShows/>}/>
     </Route>
   )
 )

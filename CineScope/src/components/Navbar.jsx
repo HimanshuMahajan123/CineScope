@@ -5,8 +5,8 @@ import { useState } from "react";
 export default function Navbar() {
   const navItems = [
     { to: "/", label: "Home" },
-    { to: "/movies", label: "Movies" },
-    { to: "/tv", label: "TV Shows" },
+    { to: "/discover/movies", label: "Movies" },
+    { to: "/discover/tv", label: "TV Shows" },
     { to: "/watchlist", label: "Watchlist" },
     { to: "/about", label: "About" }
   ];
