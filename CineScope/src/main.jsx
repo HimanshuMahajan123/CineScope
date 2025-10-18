@@ -11,6 +11,7 @@ import Watchlist from './pages/Watchlist'
 import Movies from './pages/Movies.jsx'
 import TvShows from './pages/TvShows.jsx'
 import SearchResults from './pages/SearchResults.jsx'
+import { WatchlistProvider } from './contexts/Watchlistcontext.js'
 
 
 
@@ -29,6 +30,10 @@ const router = createBrowserRouter(
 )
 createRoot(document.getElementById('root')).render(
   <StrictMode>
-    <RouterProvider router = {router}/>
+
+    <WatchlistProvider>
+      <RouterProvider router = {router}/>
+    </WatchlistProvider>
+
   </StrictMode>,
 )
