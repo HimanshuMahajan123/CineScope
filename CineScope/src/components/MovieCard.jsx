@@ -5,8 +5,9 @@ function MovieCard({ id , title, rating, image , mediaType}) {
   return (
     <Link to={`/details/${mediaType}/${id}`} className='relative transform hover:scale-105 transition duration-300'>
         <img 
-            src={image ? `https://image.tmdb.org/t/p/w500${image}` : "https://via.placeholder.com/400x600"} 
+            src={image ? `https://image.tmdb.org/t/p/w500/${image}` : "../assets/fallback.png"} 
             alt={title} 
+            onError={(e) => (e.target.src = "../assets/fallback.png")}
             className='w-full h-full object-cover rounded-lg shadow-lg ' 
         />
 
