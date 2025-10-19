@@ -7,7 +7,7 @@ function Layout() {
   return (
     <>
       <Navbar />
-      <main className=" flex-grow bg-white dark:bg-gray-800 text-white min-h-screen pt-20 px-8">
+      <main className=" flex-grow bg-white dark:bg-gray-800 text-white min-h-screen pt-20 px-8 pb-2">
         <Outlet />
       </main>
       <Footer />

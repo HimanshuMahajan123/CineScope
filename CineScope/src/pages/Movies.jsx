@@ -2,6 +2,7 @@ import React from 'react'
 import useFetchmovies from '../hooks/useFetchmovies'
 import { useState , useEffect } from 'react';
 import MovieList from '../components/MovieList';
+import SkeletonCard from '../components/SkeletonCard';
 
 function Movies() {
 
@@ -23,7 +24,7 @@ function Movies() {
             {/* ADDING FILTERS */}
             <div className='flex flex-wrap gap-4 mb-6'>
                 <select 
-                className="px-4 py-2 rounded-md bg-gray-800 text-white"
+                className="px-4 py-2 rounded-md bg-gray-500 dark:bg-gray-900 text-white"
                 value={genre} 
                 onChange={(e) => setGenre(e.target.value)}>
                     <option value="">All Genres</option>
@@ -36,7 +37,7 @@ function Movies() {
 
                 <select 
                 value={year}
-                className="px-4 py-2 rounded-md bg-gray-800 text-white"
+                className="px-4 py-2 rounded-md bg-gray-500 dark:bg-gray-900 text-white"
                 onChange={(e) => setYear(e.target.value)}>
                     <option value="">All Years</option>
                     <option value="2020">2020 onwards</option>
@@ -49,16 +50,28 @@ function Movies() {
                 <select
                 value={sortBy}
                 onChange={(e) => setSortBy(e.target.value)}
-                className="px-4 py-2 rounded-md bg-gray-800 text-white" >
+                className="px-4 py-2 rounded-md bg-gray-500 dark:bg-gray-900 text-white" >
                     <option value="">Popularity</option>
                     <option value="release_date.desc">Release Date</option>
                     <option value="vote_average.desc">Rating</option>
                 </select>
             </div>
 
-            {loading && <p className='text-gray-400'>Loading...</p>}
+
+            {/* adding skeleton cards */}
+            {loading && (
+                <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-5 gap-6">
+                    {Array.from({length: 10}).map((_, index) => (
+                        <SkeletonCard key={index} />
+                    ))}
+                </div>
+            )}
+
+            {/* Error handling */}
             {error && <p className='text-red-600'>Error : {error}</p>}
 
+
+            {/* render movie list when not loading and no error */}
             {!loading && !error && <MovieList movies = {movies} mediaType = "movie"/>}
 
 
