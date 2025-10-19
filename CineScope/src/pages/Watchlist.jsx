@@ -1,14 +1,15 @@
 import MovieList from "../components/MovieList";
+import { useWatchlist } from "../contexts/WatchlistContext";
 
 export default function Watchlist() {
-  const savedMovies = [
-    { title: "Interstellar", rating: "8.6", image: "https://via.placeholder.com/400x600" },
-    { title: "Dune", rating: "8.3", image: "https://via.placeholder.com/400x600" }
-  ];
+  const { watchlist } = useWatchlist();
+
+  // Filter only movies and TV shows
+  const savedMovies = watchlist;
 
   return (
     <div>
-      <h2 className="text-3xl font-extrabold mb-6">My Watchlist</h2>
+      <h2 className="text-red-500 dark:text-white text-3xl font-extrabold mb-6">My Watchlist</h2>
       {savedMovies.length > 0 ? (
         <MovieList movies={savedMovies} />
       ) : (
