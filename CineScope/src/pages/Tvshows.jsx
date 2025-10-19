@@ -16,8 +16,8 @@ export default function TVShows() {
         ${year ? `&primary_release_year=${year}` : ""}`)
 
   return (
-    <div className="bg-gray-900 min-h-screen text-white pt-20 px-8">
-      <h2 className="text-3xl font-extrabold mb-6">Popular TV Shows</h2>
+    <div>
+      <h2 className="text-red-500 dark:text-white text-3xl font-extrabold mb-6">Popular TV Shows</h2>
 
       {/* ADDING FILTERS */}
       <div className='flex flex-wrap gap-4 mb-6'>
@@ -73,7 +73,7 @@ export default function TVShows() {
           Prev
         </button>
 
-        <span className="text-lg font-bold">Page {page}</span>
+        <span className="text-gray-600 dark:text-white">Page {page}</span>
 
         <button
           onClick={() => setPage((prev) => prev + 1)}

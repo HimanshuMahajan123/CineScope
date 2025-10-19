@@ -16,7 +16,7 @@ function SearchResults() {
     )
 
   return (
-    <div className="bg-gray-900 min-h-screen text-white pt-20 px-8">
+    <div>
       <h2 className="text-3xl font-extrabold mb-6">
         Search Results for "{query}"
       </h2>

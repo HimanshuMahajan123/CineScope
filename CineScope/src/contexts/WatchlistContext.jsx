@@ -35,7 +35,7 @@ export const WatchlistProvider = ({children}) => {
     const addToWatchlist = (item) => {
 
         setWatchlist((prev) => {
-            if(prev.find((prevItem) => prevItem.id === item.id && prevItem.media_type === item.media_type)){
+            if(prev.find((prevItem) => prevItem.id === item.id && prevItem.mediaType === item.mediaType)){
                 return prev
             }
             return [...prev , item]
@@ -45,7 +45,7 @@ export const WatchlistProvider = ({children}) => {
     const removeFromWatchlist = (id , mediaType) => {
 
         setWatchlist((prev) => 
-            prev.filter((item) => !(item.id === id && item.media_type === mediaType))
+            prev.filter((item) => !(item.id === id && item.mediaType === mediaType))
         )
     }
 

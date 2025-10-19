@@ -7,7 +7,7 @@ export default function Watchlist() {
   ];
 
   return (
-    <div className="bg-gray-900 text-white min-h-screen pt-20 px-8">
+    <div>
       <h2 className="text-3xl font-extrabold mb-6">My Watchlist</h2>
       {savedMovies.length > 0 ? (
         <MovieList movies={savedMovies} />

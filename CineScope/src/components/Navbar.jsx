@@ -1,5 +1,7 @@
 import { NavLink, useNavigate } from "react-router-dom";
 import { useState } from "react";
+import { useTheme } from "../contexts/Theme.jsx";
+
 
 
 export default function Navbar() {
@@ -13,6 +15,7 @@ export default function Navbar() {
 
   const [query, setQuery] = useState("")
   const navigate = useNavigate()
+  const {theme , toggleTheme} = useTheme()
 
   const handleSearch = (e) => {
     e.preventDefault()
@@ -59,8 +62,14 @@ export default function Navbar() {
             className="w-3/4 px-4 py-2 rounded-full bg-white/10 backdrop-blur-md text-white placeholder-gray-400 focus:outline-none "
           />
         </form>
+        
 
-
+        {/* Theme Toggle Button */}
+        <button 
+        className=" px-4 py-2 rounded-full bg-white/10 backdrop-blur-md text-white placeholder-gray-400 focus:outline-none"
+        onClick={toggleTheme}>
+        {theme === "dark" ? "🔆Light" : "🌙Dark"}
+        </button>
       </div>
     </nav>
   );

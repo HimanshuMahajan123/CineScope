@@ -26,8 +26,8 @@ export default function Home() {
   const {data : movies , loading , error} = useFetchmovies(`https://api.themoviedb.org/3/movie/now_playing?api_key=${API_KEY}&page=1`);
 
   return (
-    <div className="bg-gray-900 min-h-screen text-white pt-20 px-8">
-      <h2 className="text-3xl font-extrabold mb-6">Trending Now</h2>
+    <div>
+      <h2 className="text-red-500 dark:text-white text-3xl font-extrabold mb-6">Trending Now</h2>
 
       {loading && <p className="text-gray-400">Loading...</p>}
       {error && <p className="text-red-500">Error: {error}</p>}

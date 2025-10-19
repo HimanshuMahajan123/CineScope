@@ -1,5 +1,7 @@
 import { useParams } from "react-router-dom";
 import useFetchmovies from "../hooks/useFetchmovies";
+import { useWatchlist } from "../contexts/WatchlistContext.jsx";
+
 
 export default function MovieDetails() {
 
@@ -7,13 +9,20 @@ export default function MovieDetails() {
   console.log(mediaType)
   const API_KEY = import.meta.env.VITE_TMDB_API_KEY;
   const { data: movie, loading, error } = useFetchmovies(`https://api.themoviedb.org/3/${mediaType}/${id}?api_key=${API_KEY}&append_to_response=credits`);//this url is dynamic based on the movie id
+  const {watchlist , addToWatchlist , removeFromWatchlist} = useWatchlist()
+
+
 
   if (loading) return <p className="text-gray-400">Loading...</p>;
   if (error) return <p className="text-red-500">Error: {error}</p>;
   if (!movie) return <p className="text-gray-400">No movie data found.</p>;
 
+  const inWatchlist = watchlist.some(
+    (item) => item.id === movie.id && item.mediaType === mediaType
+  )
+
   return (
-    <div className="bg-gray-900 text-white min-h-screen pt-20 px-8">
+    <div>
       <div className="flex flex-col md:flex-row gap-8">
       
         <img 
@@ -40,6 +49,26 @@ export default function MovieDetails() {
               <li>No cast information available.</li>
             )}
           </ul>
+
+          {/* buttons for adding and removing from watchlist */}
+          <div>
+            {inWatchlist ? (
+              <button
+                onClick={() => removeFromWatchlist(id , mediaType)}
+                className="px-5 py-2 bg-red-600 text-white rounded-lg hover:bg-red-700 transition"
+              >
+                Remove from Watchlist
+              </button>
+            ) : (
+              <button
+                onClick={() => addToWatchlist(movie)}
+                className="px-5 py-2 bg-green-600 text-white rounded-lg hover:bg-green-700 transition"
+              >
+                Add to Watchlist
+              </button>
+            ) }
+          </div>
+
         </div>
       </div>
     </div>
