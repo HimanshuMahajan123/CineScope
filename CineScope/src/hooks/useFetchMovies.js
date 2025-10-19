@@ -13,6 +13,9 @@ function useFetchmovies(url) {
             return;
         }
 
+        setLoading(true)
+        setError(null)
+
         fetch(url)
             .then((res) => {
                 if(!res.ok){
@@ -24,7 +27,10 @@ function useFetchmovies(url) {
                 console.log(res.results)
                 setData(res.results || res)
             })
-            .catch((err) => setError(err.message))
+            .catch((err) => {
+                console.error("Error fetching data: ", err)
+                setError(err.message)
+            })
             .finally(() => setLoading(false))
     } , [url]);
 
