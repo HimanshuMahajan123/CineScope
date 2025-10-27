@@ -20,7 +20,9 @@ export const WatchlistProvider = ({children}) => {
 
     //Load watchlist from localStorage on mount
     useEffect(() => {
+        console.log("0")
         const saved = localStorage.getItem("watchlist")
+        // console.log("Loaded watchlist from localStorage:" , saved)
         if(saved && saved.length > 0){
             setWatchlist(JSON.parse(saved))
         }
@@ -28,6 +30,7 @@ export const WatchlistProvider = ({children}) => {
 
     //Save watchlist to localStorage when it changes
     useEffect(() => {
+        console.log("1");
         localStorage.setItem("watchlist" , JSON.stringify(watchlist))
     } , [watchlist])
 

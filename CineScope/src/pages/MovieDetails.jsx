@@ -12,13 +12,12 @@ export default function MovieDetails() {
   const {watchlist , addToWatchlist , removeFromWatchlist} = useWatchlist()
 
 
-
   if (loading) return <p className="text-gray-400">Loading...</p>;
   if (error) return <p className="text-red-500">Error: {error}</p>;
   if (!movie) return <p className="text-gray-400">No movie data found.</p>;
 
   const inWatchlist = watchlist.some(
-    (item) => item.id === movie.id && item.mediaType === mediaType
+    (item) => item.id === movie.id
   )
 
   return (

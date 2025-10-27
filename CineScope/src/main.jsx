@@ -1,7 +1,7 @@
-import { StrictMode , lazy , Suspense } from 'react'
+import { StrictMode, lazy, Suspense } from 'react'
 import { createRoot } from 'react-dom/client'
 import './index.css'
-import { Route , RouterProvider , createBrowserRouter , createRoutesFromElements } from 'react-router-dom'
+import { Route, RouterProvider, createBrowserRouter, createRoutesFromElements } from 'react-router-dom'
 import Layout from './Layout.jsx'
 
 // for lazy loading in react:
@@ -20,28 +20,27 @@ import { ThemeProvider } from './contexts/Theme.jsx'
 
 const router = createBrowserRouter(
   createRoutesFromElements(
-    <Route path = '/' element = {<Layout />}>
-      <Route path = '' element = {<Home />}/>
-      <Route path = 'watchlist' element = {<Watchlist />}/>
-      <Route path = 'about' element = {<About />}/>
-      <Route path = 'discover/movies' element = {<Movies />} />
-      <Route path= 'search/:query' element = {<SearchResults/>}/>
-      <Route path = 'details/:mediaType/:id' element = {<MovieDetails />}/> {/*differentiating routes to prevent ambiguity*/}
-      <Route path = 'discover/tv' element = {<TvShows/>}/>
+    <Route path='/' element={<Layout />}>
+      <Route path='' element={<Home />} />
+      <Route path='watchlist' element={<Watchlist />} />
+      <Route path='about' element={<About />} />
+      <Route path='discover/movies' element={<Movies />} />
+      <Route path='search/:query' element={<SearchResults />} />
+      <Route path='details/:mediaType/:id' element={<MovieDetails />} /> {/*differentiating routes to prevent ambiguity*/}
+      <Route path='discover/tv' element={<TvShows />} />
     </Route>
   )
 )
 createRoot(document.getElementById('root')).render(
-  <StrictMode>
-
-    {/* Context data only flows downward (top → bottom) */}
+  /* Context data only flows downward (top → bottom) */
+  <>
     <ThemeProvider>
-      <WatchlistProvider>   
-        <Suspense fallback = {null}>
-          <RouterProvider router = {router}/>
+      <WatchlistProvider>
+        <Suspense fallback={null}>
+          <RouterProvider router={router} />
         </Suspense>
       </WatchlistProvider>
     </ThemeProvider> 
+  </>
 
-  </StrictMode>
 )
