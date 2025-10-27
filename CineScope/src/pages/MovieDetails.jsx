@@ -60,7 +60,7 @@ export default function MovieDetails() {
               </button>
             ) : (
               <button
-                onClick={() => addToWatchlist(movie)}
+                onClick={() => addToWatchlist(movie, mediaType)}
                 className="px-5 py-2 bg-green-600 text-white rounded-lg hover:bg-green-700 transition"
               >
                 Add to Watchlist

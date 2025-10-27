@@ -11,7 +11,7 @@ export default function Watchlist() {
     <div>
       <h2 className="text-red-500 dark:text-white text-3xl font-extrabold mb-6">My Watchlist</h2>
       {savedMovies.length > 0 ? (
-        <MovieList movies={savedMovies} />
+        <MovieList movies={savedMovies} mediaType="mixed" />
       ) : (
         <p className="text-gray-400">Your watchlist is empty.</p>
       )}

@@ -35,13 +35,13 @@ export const WatchlistProvider = ({children}) => {
     } , [watchlist])
 
 
-    const addToWatchlist = (item) => {
+    const addToWatchlist = (item, mediaType) => {
 
         setWatchlist((prev) => {
             if(prev.find((prevItem) => prevItem.id === item.id && prevItem.mediaType === item.mediaType)){
                 return prev
             }
-            return [...prev , item]
+            return [...prev , {...item, media_type : mediaType}]
         })
     }
 
