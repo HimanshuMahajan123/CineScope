@@ -6,7 +6,7 @@ import SkeletonCard from '../components/SkeletonCard'
 
 function SearchResults() {
 
-  const { query } = useParams()
+  const { query } = useParams();
   console.log(query)
   const API_KEY = import.meta.env.VITE_TMDB_API_KEY
 
@@ -18,7 +18,7 @@ function SearchResults() {
 
   return (
     <div>
-      <h2 className="text-3xl font-extrabold mb-6">
+      <h2 className="text-3xl text-red-500 dark:text-white font-extrabold mb-6">
         Search Results for "{query}"
       </h2>
 
